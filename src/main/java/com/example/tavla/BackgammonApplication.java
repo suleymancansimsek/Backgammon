@@ -7,10 +7,10 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class TavlaApplication extends Application {
+public class BackgammonApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(TavlaApplication.class.getResource("tavla-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(BackgammonApplication.class.getResource("tavla-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1000, 600);
         stage.setTitle("Hello!");
         stage.setScene(scene);

@@ -2,6 +2,6 @@ package com.example.tavla;
 
 public class Constants {
 
-    public static String blackStoneColor = "#181818";
-    public static String whiteStoneColor = "#FFF5E4";
+    public static String blackStoneColor = "#FCE700";
+    public static String whiteStoneColor = "#F637EC";
 }

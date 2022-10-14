@@ -8,16 +8,15 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17" fx:controller="com.example.tavla.TavlaController" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tavla.BackgammonController">
    <children>
       <Pane fx:id="pane" layoutX="90.0" layoutY="30.0" prefHeight="400.0" prefWidth="820.0">
          <children>
-            <VBox  prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: #E38B29;">
+            <VBox prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: #E38B29;">
                <children>
                   <HBox prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #FDEEDC;">
+                        <VBox fx:id="vBox1" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #FDEEDC;">
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
@@ -25,19 +24,19 @@
                               <Insets right="10.0" />
                            </HBox.margin>
                         </VBox>
-                        <VBox fx:id="vbox" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #472D2D;" />
-                        <VBox fx:id="vbox2" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #FDEEDC;">
+                        <VBox fx:id="vBox2" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #472D2D;" />
+                        <VBox fx:id="vbox3" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #FDEEDC;">
                            <HBox.margin>
                               <Insets left="10.0" right="10.0" />
                            </HBox.margin>
                         </VBox>
-                        <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #472D2D;" />
-                        <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #FDEEDC;">
+                        <VBox fx:id="vBox4" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #472D2D;" />
+                        <VBox fx:id="vBox5" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #FDEEDC;">
                            <HBox.margin>
                               <Insets left="10.0" right="10.0" />
                            </HBox.margin>
                         </VBox>
-                        <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #472D2D;" />
+                        <VBox fx:id="vBox6" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #472D2D;" />
                      </children>
                      <padding>
                         <Insets bottom="10.0" />
@@ -45,8 +44,8 @@
                   </HBox>
                   <HBox prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #472D2D;" />
-                        <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #FDEEDC;">
+                        <VBox fx:id="vBox13" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #472D2D;" />
+                        <VBox fx:id="vBox14" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #FDEEDC;">
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
@@ -54,14 +53,14 @@
                               <Insets left="10.0" right="10.0" />
                            </HBox.margin>
                         </VBox>
-                        <VBox  prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #472D2D;" />
-                        <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #FDEEDC;">
+                        <VBox fx:id="vBox15" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #472D2D;" />
+                        <VBox fx:id="vBox16" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #FDEEDC;">
                            <HBox.margin>
                               <Insets left="10.0" right="10.0" />
                            </HBox.margin>
                         </VBox>
-                        <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #472D2D;" />
-                        <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #FDEEDC;">
+                        <VBox fx:id="vBox17" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #472D2D;" />
+                        <VBox fx:id="vBox18" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #FDEEDC;">
                            <HBox.margin>
                               <Insets left="10.0" right="10.0" />
                            </HBox.margin>
@@ -81,7 +80,7 @@
                <children>
                   <HBox prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #FDEEDC;">
+                        <VBox fx:id="vBox7" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #FDEEDC;">
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
@@ -89,19 +88,19 @@
                               <Insets right="10.0" />
                            </HBox.margin>
                         </VBox>
-                        <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #472D2D;" />
-                        <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #FDEEDC;">
+                        <VBox fx:id="vBox8" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #472D2D;" />
+                        <VBox fx:id="vBox9" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #FDEEDC;">
                            <HBox.margin>
                               <Insets left="10.0" right="10.0" />
                            </HBox.margin>
                         </VBox>
-                        <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #472D2D;" />
-                        <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #FDEEDC;">
+                        <VBox fx:id="vBox10" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #472D2D;" />
+                        <VBox fx:id="vBox11" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #FDEEDC;">
                            <HBox.margin>
                               <Insets left="10.0" right="10.0" />
                            </HBox.margin>
                         </VBox>
-                        <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #472D2D;" />
+                        <VBox fx:id="vBox12" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #472D2D;" />
                      </children>
                      <padding>
                         <Insets bottom="10.0" />
@@ -109,8 +108,8 @@
                   </HBox>
                   <HBox prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #472D2D;" />
-                        <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #FDEEDC;">
+                        <VBox fx:id="vBox19" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #472D2D;" />
+                        <VBox fx:id="vBox20" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #FDEEDC;">
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
@@ -118,14 +117,14 @@
                               <Insets left="10.0" right="10.0" />
                            </HBox.margin>
                         </VBox>
-                        <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #472D2D;" />
-                        <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #FDEEDC;">
+                        <VBox fx:id="vBox21" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #472D2D;" />
+                        <VBox fx:id="vBox22" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #FDEEDC;">
                            <HBox.margin>
                               <Insets left="10.0" right="10.0" />
                            </HBox.margin>
                         </VBox>
-                        <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #472D2D;" />
-                        <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #FDEEDC;">
+                        <VBox fx:id="vBox23" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #472D2D;" />
+                        <VBox fx:id="vBox24" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #FDEEDC;">
                            <HBox.margin>
                               <Insets left="10.0" right="10.0" />
                            </HBox.margin>
@@ -145,7 +144,7 @@
             </VBox>
          </children>
       </Pane>
-      <Button onAction="#onNewGameButtonClick" layoutX="450.0" layoutY="461.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="New Game" />
+      <Button layoutX="450.0" layoutY="461.0" mnemonicParsing="false" onAction="#onNewGameButtonClick" prefHeight="25.0" prefWidth="100.0" text="New Game" />
       <Button layoutX="90.0" layoutY="461.0" mnemonicParsing="false" text="Player 1" />
       <Button layoutX="852.0" layoutY="461.0" mnemonicParsing="false" text="Player 2" />
       <Button layoutX="450.0" layoutY="502.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Dicee" />
