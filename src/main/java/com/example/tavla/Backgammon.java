@@ -33,11 +33,11 @@ public class Backgammon implements BackGammonChecker{
         vBoxList.get(4).getChildren().add(CheckerList.whiteCheckers.get(1));
         vBoxList.get(4).getChildren().add(CheckerList.whiteCheckers.get(2));
 
-        vBoxList.get(7).getChildren().add(CheckerList.whiteCheckers.get(3));
-        vBoxList.get(7).getChildren().add(CheckerList.whiteCheckers.get(4));
-        vBoxList.get(7).getChildren().add(CheckerList.whiteCheckers.get(5));
-        vBoxList.get(7).getChildren().add(CheckerList.whiteCheckers.get(6));
-        vBoxList.get(7).getChildren().add(CheckerList.whiteCheckers.get(7));
+        vBoxList.get(6).getChildren().add(CheckerList.whiteCheckers.get(3));
+        vBoxList.get(6).getChildren().add(CheckerList.whiteCheckers.get(4));
+        vBoxList.get(6).getChildren().add(CheckerList.whiteCheckers.get(5));
+        vBoxList.get(6).getChildren().add(CheckerList.whiteCheckers.get(6));
+        vBoxList.get(6).getChildren().add(CheckerList.whiteCheckers.get(7));
 
         vBoxList.get(11).getChildren().add(CheckerList.blackCheckers.get(5));
         vBoxList.get(11).getChildren().add(CheckerList.blackCheckers.get(6));

@@ -1,8 +1,10 @@
 package com.example.tavla;
 
+import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
@@ -24,7 +26,7 @@ public class BackgammonController implements Initializable {
 //        CheckerMove checkerMove =  new CheckerMove(CheckerList.blackCheckers.get(1),vBox1,pane);
 
         //CheckerMove.getVboxNumber(vBox12);
-
+      //  checkerMove.move(CheckerList.blackCheckers.get(0), FindObject.getObject(pane),pane,results);
     }
 
     @FXML
@@ -80,8 +82,10 @@ public class BackgammonController implements Initializable {
 
     @FXML
     protected void onDiceeButtonClick(){
-        Pair results = Dicee.roll(); //it gives us 2 dicees values
+         //it gives us 2 dicees values
+        Pair results = Dicee.roll();
         result.setText(String.valueOf(results.value1) + " " +String.valueOf(results.value2));
+
     }
 
 
