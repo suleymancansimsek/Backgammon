@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class BackgammonController implements Initializable {
-
+    CheckerMove checkerMove =  new CheckerMove();
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //draggableObject.makeDraggableStone(result);
@@ -20,10 +20,15 @@ public class BackgammonController implements Initializable {
         CheckerCreate checkerCreate =  new CheckerCreate();
         checkerCreate.createAllBlackCheckers();
         checkerCreate.createAllWhiteCheckers();
+
+//        CheckerMove checkerMove =  new CheckerMove(CheckerList.blackCheckers.get(1),vBox1,pane);
+
+        //CheckerMove.getVboxNumber(vBox12);
+
     }
 
     @FXML
-    private Label welcomeText,result;
+    private Label result;
 
     @FXML
     private VBox vBox1,vBox2,vBox3,vBox4,vBox5,vBox6,vBox7,vBox8,vBox9,vBox10,vBox11,vBox12,vBox13,vBox14,vBox15,vBox16,vBox17,vBox18,vBox19,vBox20,vBox21,vBox22,vBox23,vBox24;
@@ -61,7 +66,6 @@ public class BackgammonController implements Initializable {
         vBoxList.add(vBox24);
     }
 
-    DraggableObject draggableObject = new DraggableObject();
 //    StoneObject stoneObject = new StoneObject();
 //    Circle stone = stoneObject.getStone(Constants.whiteStoneColor);
 
@@ -69,9 +73,15 @@ public class BackgammonController implements Initializable {
     protected void onNewGameButtonClick() {
 
 //        vbox.getChildren().add(stone);
-//        draggableObject.makeDraggableStone(stone,vbox,pane,vBox2);
         backgammon.newGamePattern(vBoxList);
+        checkerMove.drag(CheckerList.blackCheckers.get(0),vBox1,pane);
+        checkerMove.drop(CheckerList.blackCheckers.get(0),vBox4);
+    }
 
+    @FXML
+    protected void onDiceeButtonClick(){
+        Pair results = Dicee.roll(); //it gives us 2 dicees values
+        result.setText(String.valueOf(results.value1) + " " +String.valueOf(results.value2));
     }
 
 

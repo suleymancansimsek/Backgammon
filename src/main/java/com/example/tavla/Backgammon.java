@@ -1,14 +1,20 @@
 package com.example.tavla;
 
 import javafx.scene.Node;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 import java.util.List;
 
 public class Backgammon implements BackGammonChecker{
 
+//    DraggableObject draggableObject =  new DraggableObject();
+    private double mouseAnchorX;
+    private double mouseAnchory;
+
     @Override
-    public void move(int diceResult1, int diceResult2, Node node) {
+    public void move(int diceResult1, int diceResult2, Node node, VBox vBox, Pane pane) {
+//        draggableObject.makeDraggable(node);
 
     }
 
@@ -56,4 +62,5 @@ public class Backgammon implements BackGammonChecker{
         vBoxList.get(23).getChildren().add(CheckerList.whiteCheckers.get(14));
 
     }
+
 }
