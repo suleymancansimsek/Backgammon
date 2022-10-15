@@ -146,8 +146,8 @@
          </children>
       </Pane>
       <Button layoutX="450.0" layoutY="461.0" mnemonicParsing="false" onAction="#onNewGameButtonClick" prefHeight="25.0" prefWidth="100.0" text="New Game" />
-      <Button layoutX="90.0" layoutY="461.0" mnemonicParsing="false" text="Player 1" />
-      <Button layoutX="852.0" layoutY="461.0" mnemonicParsing="false" text="Player 2" />
+      <Button layoutX="90.0" layoutY="461.0" mnemonicParsing="false" onAction="#onPlayer1ButtonClick" text="Player 1" />
+      <Button layoutX="852.0" layoutY="461.0" mnemonicParsing="false" onAction="#onPlayer2ButtonClick" text="Player 2" />
       <Button layoutX="450.0" layoutY="502.0" mnemonicParsing="false" onAction="#onDiceeButtonClick" prefHeight="25.0" prefWidth="100.0" text="Dicee" />
       <Label layoutX="90.0" layoutY="438.0" text="PLAYER 1" />
       <Label layoutX="860.0" layoutY="438.0" text="PLAYER 2" />
