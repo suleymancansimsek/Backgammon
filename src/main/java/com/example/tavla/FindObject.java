@@ -79,7 +79,10 @@ public class FindObject {
                 int value2 = diceResults.value2;
                 int value3 = value1 + value2;
 
-                int initalPosition = getVboxNumber(circle.getParent());
+                System.out.println(value1);
+                System.out.println(value2);
+                int initalPosition = getVboxNumber(circle.getParent()) ;
+//                System.out.println(initalPosition);
                 int targetPosition1 = 0;
                 int targetPosition2;
                 int targetPosition3;
@@ -87,7 +90,7 @@ public class FindObject {
                 if (CheckerList.blackCheckers.contains(circle)){
 
                     //1. segment
-                    if (0<initalPosition && initalPosition<6 ){
+                    if (0<initalPosition && initalPosition<7 ){
                         if (initalPosition > value1){
                             targetPosition1 = initalPosition - value1;
                             System.out.println(targetPosition1);
@@ -125,6 +128,7 @@ public class FindObject {
                     if (6<initalPosition && initalPosition<13 ){
                         if (initalPosition > value1){
                             targetPosition1 = initalPosition - value1;
+                            System.out.println("Target POS: " + targetPosition1);
                         }
 
                         if (initalPosition > value2){
@@ -140,9 +144,10 @@ public class FindObject {
                     }
 
                     // 3. segment
-                    if (13<initalPosition && initalPosition<19 ){
+                    if (12<initalPosition && initalPosition<19 ){
                         if (initalPosition > value1){
                             targetPosition1 = initalPosition + value1;
+                            System.out.println("Target POS: " + targetPosition1);
                         }
 
                         if (initalPosition > value2){
@@ -158,7 +163,7 @@ public class FindObject {
                     }
 
                     // 4. segment
-                    if (19<initalPosition && initalPosition<24 ){
+                    if (18<initalPosition && initalPosition<24 ){
                         if (initalPosition > value1 && !(value1 == 6)){
                             targetPosition1 = initalPosition + value1;
                         }
@@ -183,7 +188,7 @@ public class FindObject {
 
                 }
 
-                VBox targetVbox = BackgammonController.vBoxList.get(targetPosition1);
+                VBox targetVbox = BackgammonController.vBoxList.get(targetPosition1 - 1);
 
                 targetVbox.getChildren().add(circle);
 
