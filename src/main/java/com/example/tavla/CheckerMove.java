@@ -3,6 +3,7 @@ package com.example.tavla;
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.shape.Circle;
 
 import static java.lang.Integer.parseInt;
 
@@ -18,7 +19,7 @@ public class CheckerMove implements DragDrop{
 //
 //    }
 
-    public void move(Node node, VBox vBox, Pane pane, Pair diceResults){
+    public void move(Circle node, VBox vBox, Pane pane, Pair diceResults, VBox targetVbox){
        // diceResults = Dicee.roll();
 
 
@@ -29,7 +30,7 @@ public class CheckerMove implements DragDrop{
         drag(node,vBox,pane);
 
         int initalPosition = getVboxNumber(vBox);
-        int targetPosition1;
+        int targetPosition1 = 0;
         int targetPosition2;
         int targetPosition3;
 
@@ -131,8 +132,8 @@ public class CheckerMove implements DragDrop{
             }
 
         }
-
-        //drop(node);
+        targetVbox = BackgammonController.vBoxList.get(targetPosition1);
+        drop(node,targetVbox);
     }
 
     @Override

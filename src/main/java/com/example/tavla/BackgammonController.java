@@ -21,24 +21,21 @@ public class BackgammonController implements Initializable{
         CheckerCreate checkerCreate =  new CheckerCreate();
         checkerCreate.createAllBlackCheckers();
         checkerCreate.createAllWhiteCheckers();
-        backgammon.newGamePattern(getvBoxList());
+        backgammon.newGamePattern(vBoxList);
 
+
+//        try {
+//            getVboxID();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
         try {
-            FindObject.getCircleObject(pane , vBox1);
+          FindObject.getCircleObject(pane);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-//        ListenerTask listenerTask =  new ListenerTask(pane);
-//        try {
-//            listenerTask.call();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        CheckerMove checkerMove =  new CheckerMove(CheckerList.blackCheckers.get(1),vBox1,pane);
-
-        //CheckerMove.getVboxNumber(vBox12);
-      //  checkerMove.move(CheckerList.blackCheckers.get(0), FindObject.getObject(pane),pane,results);
     }
 
     @FXML
@@ -50,35 +47,35 @@ public class BackgammonController implements Initializable{
     @FXML
     private Pane pane;
 
-    private List<VBox> vBoxList = new ArrayList<>();
+    public static List<VBox> vBoxList = new ArrayList<>();
     Backgammon backgammon = new Backgammon();
-    Pair pair;
+    public static Pair pair;
 
     public void vBoxListCreate(){
-        getvBoxList().add(vBox1);
-        getvBoxList().add(vBox2);
-        getvBoxList().add(vBox3);
-        getvBoxList().add(vBox4);
-        getvBoxList().add(vBox5);
-        getvBoxList().add(vBox6);
-        getvBoxList().add(vBox7);
-        getvBoxList().add(vBox8);
-        getvBoxList().add(vBox9);
-        getvBoxList().add(vBox10);
-        getvBoxList().add(vBox11);
-        getvBoxList().add(vBox12);
-        getvBoxList().add(vBox13);
-        getvBoxList().add(vBox14);
-        getvBoxList().add(vBox15);
-        getvBoxList().add(vBox16);
-        getvBoxList().add(vBox17);
-        getvBoxList().add(vBox18);
-        getvBoxList().add(vBox19);
-        getvBoxList().add(vBox20);
-        getvBoxList().add(vBox21);
-        getvBoxList().add(vBox22);
-        getvBoxList().add(vBox23);
-        getvBoxList().add(vBox24);
+       vBoxList.add(vBox1);
+        vBoxList.add(vBox2);
+        vBoxList.add(vBox3);
+        vBoxList.add(vBox4);
+        vBoxList.add(vBox5);
+        vBoxList.add(vBox6);
+        vBoxList.add(vBox7);
+        vBoxList.add(vBox8);
+        vBoxList.add(vBox9);
+        vBoxList.add(vBox10);
+        vBoxList.add(vBox11);
+        vBoxList.add(vBox12);
+        vBoxList.add(vBox13);
+        vBoxList.add(vBox14);
+        vBoxList.add(vBox15);
+        vBoxList.add(vBox16);
+        vBoxList.add(vBox17);
+        vBoxList.add(vBox18);
+        vBoxList.add(vBox19);
+        vBoxList.add(vBox20);
+        vBoxList.add(vBox21);
+        vBoxList.add(vBox22);
+        vBoxList.add(vBox23);
+        vBoxList.add(vBox24);
     }
 
 //    StoneObject stoneObject = new StoneObject();
@@ -103,17 +100,18 @@ public class BackgammonController implements Initializable{
 
     @FXML
     protected void onPlayer1ButtonClick(){
-        FindObject.getObject(pane);
-        if (getvBoxList().contains(FindObject.getObject(pane))){
-            System.out.println(FindObject.getObject(pane));
-            //checkerMove.move(CheckerList.blackCheckers.get(0), FindObject.getObject(pane),pane,pair);
-        }
+//        FindObject.getObject(pane);
+//        if (getvBoxList().contains(FindObject.getObject(pane))){
+//            System.out.println(FindObject.getObject(pane));
+//            //checkerMove.move(CheckerList.blackCheckers.get(0), FindObject.getObject(pane),pane,pair);
+//        }
 
 
     }
 
     @FXML
     protected void onPlayer2ButtonClick(){
+        System.out.println(vBoxList.get(0).getChildren());
 //        FindObject.getObject(pane);
 //        if (vBoxList.contains(FindObject.getObject(pane))){
 //            checkerMove.move(CheckerList.blackCheckers.get(0), FindObject.getObject(pane),pane,pair);
@@ -122,29 +120,20 @@ public class BackgammonController implements Initializable{
     }
 
 
-    public List<VBox> getvBoxList() {
-        return vBoxList;
-    }
 
-    public void setvBoxList(List<VBox> vBoxList) {
-        this.vBoxList = vBoxList;
-    }
+    public void getVboxID() throws IOException {
+        System.out.println(vBoxList.get(4).getChildren().size());
 
-    public String getVboxID(int checkerID){
-        List<VBox> vBoxList = getvBoxList();
+//                        if (vBoxList.get(4).getChildren().get(0).getId().contains("0")){
+//                    System.out.println(vBoxList.get(4).getId());
+//                }
+//        for (int i = 0; i<vBoxList.size(); i++){
+//
+//            if (vBoxList.get(i).getChildren().contains(FindObject.getObjectCircle(pane))){
+//                System.out.println(vBoxList.get(i).getId());
+//            }
+//        }
 
-        for (int i = 0; i<vBoxList.size(); i++){
 
-            for (int j=0; j<vBoxList.get(i).getChildren().size(); j++){
-
-
-                if (vBoxList.get(i).getChildren().get(j).getId().equals(checkerID)){
-                    System.out.println(vBoxList.get(i).getId());
-                    return vBoxList.get(i).getId();
-                }
-
-            }
-        }
-        return "";
     }
 }
