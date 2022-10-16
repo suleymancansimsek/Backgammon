@@ -1,15 +1,17 @@
 package com.example.tavla;
 
-import javafx.event.EventType;
-import javafx.fxml.FXMLLoader;
+import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import static java.lang.Integer.parseInt;
@@ -20,182 +22,110 @@ public class FindObject {
     private double layoutY;
 
     //static String name;
-    static VBox vBoxtemp;
-    static int ID = -1;
-    static  Circle circleTemp;
+//    static Circle tempCircle;
 
-
-    public static VBox getObject(Pane pane){
+    public static void getvBoxObject(Pane pane,Circle circle){
 
         pane.setOnMousePressed(mouseEvent->{
 
             Object target = mouseEvent.getTarget();
-            if (target instanceof VBox){
+            if (target instanceof VBox ){
                 VBox vBox = (VBox) target;
-               vBoxtemp = vBox;
-               System.out.println(vBox.getId());
+
+                System.out.println(vBox.getId());
+                vBox.getChildren().add(circle);
             }
         });
-
-        return vBoxtemp;
     }
 
-    public static Circle getObjectCircle(Pane pane){
-
-        pane.setOnMousePressed(mouseEvent->{
-
-            Object target = mouseEvent.getTarget();
-            if (target instanceof VBox){
-                Circle circle = (Circle) target;
-                circleTemp = circle;
-                System.out.println(circle.getId());
-            }
-        });
-
-        return circleTemp;
-    }
+//    public static Circle getObjectCircle(Pane pane){
+//
+//        pane.setOnMousePressed(mouseEvent->{
+//
+//            Object target = mouseEvent.getTarget();
+//            if (target instanceof VBox){
+//                Circle circle = (Circle) target;
+//                circleTemp = circle;
+//                System.out.println(circle.getId());
+//            }
+//        });
+//
+//        return circleTemp;
+//    }
+    public static List<PairVboxColor> greenVboxs = new ArrayList<>();
 
     public static void getCircleObject(Pane pane) throws IOException {
 
-//        FXMLLoader fxmlLoader = new FXMLLoader();
-//        fxmlLoader.setLocation(BackgammonController.class.getResource("tavla-view.fxml"));
-//        BackgammonController controller = fxmlLoader.getController();
-//        fxmlLoader.load();
-//
-//        List<VBox> vBoxList = controller.getvBoxList();
-
         pane.setOnMousePressed(mouseEvent->{
-
             Object target = mouseEvent.getTarget();
             if (target instanceof Circle){
                 Circle circle = (Circle) target;
                 System.out.println(circle.getId());
-                ID = getCircleNumber(circle);
                 System.out.println(getVboxNumber(circle.getParent()));
+//                tempCircle = circle;
 
-                Pair diceResults = BackgammonController.pair;
+                PairInteger diceResults = BackgammonController.pair;
 
                 int value1 = diceResults.value1;
                 int value2 = diceResults.value2;
                 int value3 = value1 + value2;
-
-                System.out.println(value1);
-                System.out.println(value2);
                 int initalPosition = getVboxNumber(circle.getParent()) ;
+
 //                System.out.println(initalPosition);
-                int targetPosition1 = 0;
+                int targetPosition1;
                 int targetPosition2;
                 int targetPosition3;
 
-                if (CheckerList.blackCheckers.contains(circle)){
 
-                    //1. segment
-                    if (0<initalPosition && initalPosition<7 ){
-                        if (initalPosition > value1){
-                            targetPosition1 = initalPosition - value1;
-                            System.out.println(targetPosition1);
-                        }
-                        if (initalPosition <= value1){
-                            targetPosition1 = value1 + 13 - initalPosition;
-                            System.out.println(value1);
-                            System.out.println(targetPosition1);
+                // for blacks
+                if (circle.getFill().toString().equals("0xfce700ff")){
 
-                        }
-                        if (initalPosition > value2){
-                            targetPosition2 = initalPosition - value2;
-                            System.out.println(targetPosition2);
+                    VBox targetVbox1 = BackgammonController.vBoxList.get(value1 + initalPosition - 1);
+                    VBox targetVbox2 = BackgammonController.vBoxList.get(value2 + initalPosition - 1);
+                    VBox targetVbox3 = BackgammonController.vBoxList.get(value3 + initalPosition - 1);
 
-                        }
-                        if (initalPosition <= value2){
-                            targetPosition2 = value2 + 13 - initalPosition;
-                            System.out.println(targetPosition2);
+                    String target1Color = targetVbox1.getBackground().getFills().get(0).getFill().toString();
+                    String target2Color = targetVbox2.getBackground().getFills().get(0).getFill().toString();
+                    String target3Color = targetVbox3.getBackground().getFills().get(0).getFill().toString();
 
-                        }
-                        if (initalPosition > value3){
-                            targetPosition3 = initalPosition - value3;
-                            System.out.println(targetPosition3);
+                    PairVboxColor vBoxColors1 = new PairVboxColor(targetVbox1,target1Color);
+                    PairVboxColor vBoxColors2 = new PairVboxColor(targetVbox2,target2Color);
+                    PairVboxColor vBoxColors3 = new PairVboxColor(targetVbox3,target3Color);
 
-                        }
-                        if (initalPosition <= value3){
-                            targetPosition3 = value3 + 13 - initalPosition;
-                            System.out.println(targetPosition3);
+                    setVboxBackgroundColorLightGreen(targetVbox1);
+                    setVboxBackgroundColorLightGreen(targetVbox2);
+                    setVboxBackgroundColorLightGreen(targetVbox3);
 
-                        }
+                    for (PairVboxColor i: greenVboxs) {
+                        setVboxBackgroundColor(i.value1,i.value2);
 
                     }
 
-                    // 2. segment
-                    if (6<initalPosition && initalPosition<13 ){
-                        if (initalPosition > value1){
-                            targetPosition1 = initalPosition - value1;
-                            System.out.println("Target POS: " + targetPosition1);
-                        }
+                    greenVboxs.clear();
 
-                        if (initalPosition > value2){
-                            targetPosition2 = initalPosition - value2;
-                        }
+                    greenVboxs.add(vBoxColors1);
+                    greenVboxs.add(vBoxColors2);
+                    greenVboxs.add(vBoxColors3);
 
-                        if (initalPosition > value3){
-                            targetPosition3 = initalPosition - value3;
-                        }
-                        if (initalPosition <= value3){
-                            targetPosition3 = value3 + 13 - initalPosition;
-                        }
-                    }
+                    getvBoxObject(pane,circle);
 
-                    // 3. segment
-                    if (12<initalPosition && initalPosition<19 ){
-                        if (initalPosition > value1){
-                            targetPosition1 = initalPosition + value1;
-                            System.out.println("Target POS: " + targetPosition1);
-                        }
-
-                        if (initalPosition > value2){
-                            targetPosition2 = initalPosition + value2;
-                        }
-
-                        if (initalPosition > value3 && !(value3 == 12)){
-                            targetPosition3 = initalPosition + value3;
-                        }
-                        if (value3 == 12){
-                            System.out.println("you can not play!");
-                        }
-                    }
-
-                    // 4. segment
-                    if (18<initalPosition && initalPosition<24 ){
-                        if (initalPosition > value1 && !(value1 == 6)){
-                            targetPosition1 = initalPosition + value1;
-                        }
-                        if (value1 == 6){
-                            System.out.println("you can not play!");
-                        }
-
-                        if (initalPosition > value2  && !(value2 == 6)){
-                            targetPosition2 = initalPosition - value2;
-                        }
-                        if (value2 == 6){
-                            System.out.println("you can not play!");
-                        }
-
-                        if (initalPosition > value3  && !(value3 < 6)){
-                            targetPosition3 = initalPosition + value3;
-                        }
-                        if (value3 > 6){
-                            System.out.println("you can not play!");
-                        }
-                    }
 
                 }
 
-                VBox targetVbox = BackgammonController.vBoxList.get(targetPosition1 - 1);
-
-                targetVbox.getChildren().add(circle);
 
 
             }
         });
 
+    }
+
+
+    public static void setVboxBackgroundColor(VBox vBox, String colorCode){
+        vBox.setBackground(new Background(new BackgroundFill(Paint.valueOf(colorCode), CornerRadii.EMPTY, Insets.EMPTY)));
+    }
+
+    public static void setVboxBackgroundColorLightGreen(VBox vBox){
+        vBox.setBackground(new Background(new BackgroundFill(Color.LIGHTGREEN, CornerRadii.EMPTY, Insets.EMPTY)));
     }
 
     public static int getCircleNumber(Circle circle){
@@ -204,14 +134,6 @@ public class FindObject {
 
         return number;
     }
-
-//    public static int getVboxNumber(Parent vBox){
-//        String vBoxIdID = vBox.getId();
-//        String vBoxNumber = vBoxIdID.replace("vBox","");
-//        //System.out.println(vBoxNumber);
-//        int number = parseInt(vBoxIdID);
-//        return number;
-//    }
 
     public static int getVboxNumber(Parent vBox){
     String vBoxID = vBox.getId();
@@ -222,25 +144,6 @@ public class FindObject {
     return number;
     }
 
-    public static void getVbox(int checkerID){
-//        FXMLLoader fxmlLoader = new FXMLLoader();
-//        fxmlLoader.setLocation(BackgammonController.class.getResource("/tavla/view.fxml"));
-//
-//        BackgammonController controller = fxmlLoader.getController();
-
-//            for (int i = 0; i<vBoxList.size(); i++){
-//
-//                for (int j=0; j<vBoxList.get(i).getChildren().size(); j++){
-//                    System.out.println(vBoxList.get(i).getChildren().size());
-//                    System.out.println(vBoxList.get(i).getId());
-//                    if (vBoxList.get(i).getChildren().get(j).getId().equals(checkerID)){
-//                        System.out.println(vBoxList.get(i).getId());
-//                    }
-//
-//                }
-//            }
-
-    }
 
 
 }

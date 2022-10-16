@@ -17,7 +17,7 @@
                <children>
                   <HBox prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <VBox fx:id="vBox1" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #FDEEDC;">
+                        <VBox fx:id="vBox12" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #FDEEDC;">
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
@@ -25,19 +25,19 @@
                               <Insets right="10.0" />
                            </HBox.margin>
                         </VBox>
-                        <VBox fx:id="vBox2" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #472D2D;" />
-                        <VBox fx:id="vbox3" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #FDEEDC;">
+                        <VBox fx:id="vBox11" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #472D2D;" />
+                        <VBox fx:id="vbox10" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #FDEEDC;">
                            <HBox.margin>
                               <Insets left="10.0" right="10.0" />
                            </HBox.margin>
                         </VBox>
-                        <VBox fx:id="vBox4" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #472D2D;" />
-                        <VBox fx:id="vBox5" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #FDEEDC;">
+                        <VBox fx:id="vBox9" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #472D2D;" />
+                        <VBox fx:id="vBox8" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #FDEEDC;">
                            <HBox.margin>
                               <Insets left="10.0" right="10.0" />
                            </HBox.margin>
                         </VBox>
-                        <VBox fx:id="vBox6" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #472D2D;" />
+                        <VBox fx:id="vBox7" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #472D2D;" />
                      </children>
                      <padding>
                         <Insets bottom="10.0" />
@@ -81,7 +81,7 @@
                <children>
                   <HBox prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <VBox fx:id="vBox7" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #FDEEDC;">
+                        <VBox fx:id="vBox6" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #FDEEDC;">
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
@@ -89,19 +89,19 @@
                               <Insets right="10.0" />
                            </HBox.margin>
                         </VBox>
-                        <VBox fx:id="vBox8" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #472D2D;" />
-                        <VBox fx:id="vBox9" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #FDEEDC;">
+                        <VBox fx:id="vBox5" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #472D2D;" />
+                        <VBox fx:id="vBox4" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #FDEEDC;">
                            <HBox.margin>
                               <Insets left="10.0" right="10.0" />
                            </HBox.margin>
                         </VBox>
-                        <VBox fx:id="vBox10" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #472D2D;" />
-                        <VBox fx:id="vBox11" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #FDEEDC;">
+                        <VBox fx:id="vBox3" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #472D2D;" />
+                        <VBox fx:id="vBox2" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #FDEEDC;">
                            <HBox.margin>
                               <Insets left="10.0" right="10.0" />
                            </HBox.margin>
                         </VBox>
-                        <VBox fx:id="vBox12" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #472D2D;" />
+                        <VBox fx:id="vBox1" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #472D2D;" />
                      </children>
                      <padding>
                         <Insets bottom="10.0" />

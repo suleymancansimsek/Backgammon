@@ -19,7 +19,7 @@ public class CheckerMove implements DragDrop{
 //
 //    }
 
-    public void move(Circle node, VBox vBox, Pane pane, Pair diceResults, VBox targetVbox){
+    public void move(Circle node, VBox vBox, Pane pane, PairInteger diceResults, VBox targetVbox){
        // diceResults = Dicee.roll();
 
 

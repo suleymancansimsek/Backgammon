@@ -23,18 +23,13 @@ public class BackgammonController implements Initializable{
         checkerCreate.createAllWhiteCheckers();
         backgammon.newGamePattern(vBoxList);
 
-
-//        try {
-//            getVboxID();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
         try {
           FindObject.getCircleObject(pane);
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+
 
     }
 
@@ -49,7 +44,7 @@ public class BackgammonController implements Initializable{
 
     public static List<VBox> vBoxList = new ArrayList<>();
     Backgammon backgammon = new Backgammon();
-    public static Pair pair;
+    public static PairInteger pair;
 
     public void vBoxListCreate(){
        vBoxList.add(vBox1);
@@ -92,7 +87,7 @@ public class BackgammonController implements Initializable{
     @FXML
     protected void onDiceeButtonClick(){
          //it gives us 2 dicees values
-        Pair results = Dicee.roll();
+        PairInteger results = Dicee.roll();
         pair = results;
         result.setText(String.valueOf(results.value1) + " " +String.valueOf(results.value2));
 
