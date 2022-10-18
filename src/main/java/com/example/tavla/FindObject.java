@@ -34,6 +34,8 @@ public class FindObject {
 
                 System.out.println(vBox.getId());
                 vBox.getChildren().add(circle);
+                turnOffGreenVboxs();
+                greenVboxs.clear();
             }
         });
     }
@@ -142,6 +144,12 @@ public class FindObject {
     int number = parseInt(vBoxNumber);
 //    System.out.println(number);
     return number;
+    }
+
+    public static void turnOffGreenVboxs(){
+        for (PairVboxColor vBox: greenVboxs) {
+            setVboxBackgroundColor(vBox.value1, vBox.value2);
+        }
     }
 
 
