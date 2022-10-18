@@ -33,9 +33,20 @@ public class FindObject {
                 VBox vBox = (VBox) target;
 
                 System.out.println(vBox.getId());
-                vBox.getChildren().add(circle);
-                turnOffGreenVboxs();
-                greenVboxs.clear();
+
+                System.out.println(vBox.getBackground().getFills().get(0).getFill().toString());
+                System.out.println(vBox.getBackground().getFills().get(0).getFill().toString().equals("0x90ee90ff"));
+
+                if (vBox.getBackground().getFills().get(0).getFill().toString().equals("0x90ee90ff")){
+                    vBox.getChildren().add(circle);
+                    turnOffGreenVboxs();
+                    greenVboxs.clear();
+                }else{
+                    System.out.println("hata");
+                }
+//                vBox.getChildren().add(circle);
+
+
             }
         });
     }
@@ -150,6 +161,15 @@ public class FindObject {
         for (PairVboxColor vBox: greenVboxs) {
             setVboxBackgroundColor(vBox.value1, vBox.value2);
         }
+    }
+
+    public static List<String> getAllGreenVboxs(){
+        List<String> allGreenVboxs = new ArrayList<>();
+        for (PairVboxColor pairVboxColor: greenVboxs) {
+            VBox vBox = pairVboxColor.value1;
+            allGreenVboxs.add(vBox.getId());
+        }
+        return allGreenVboxs;
     }
 
 
