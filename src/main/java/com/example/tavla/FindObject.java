@@ -14,41 +14,42 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.lang.Integer.compare;
 import static java.lang.Integer.parseInt;
 
 public class FindObject {
 
-    private double layoutX;
-    private double layoutY;
-
-    //static String name;
-//    static Circle tempCircle;
-
     public static void getvBoxObject(Pane pane,Circle circle){
 
-        pane.setOnMousePressed(mouseEvent->{
+            pane.setOnMousePressed(mouseEvent->{
 
-            Object target = mouseEvent.getTarget();
-            if (target instanceof VBox ){
-                VBox vBox = (VBox) target;
+                Object target = mouseEvent.getTarget();
+                if (target instanceof VBox ){
+                    VBox vBox = (VBox) target;
 
-                System.out.println(vBox.getId());
+//                System.out.println(vBox.getId());
+//
+//                System.out.println(vBox.getBackground().getFills().get(0).getFill().toString());
+//                System.out.println(vBox.getBackground().getFills().get(0).getFill().toString().equals("0x90ee90ff"));
 
-                System.out.println(vBox.getBackground().getFills().get(0).getFill().toString());
-                System.out.println(vBox.getBackground().getFills().get(0).getFill().toString().equals("0x90ee90ff"));
-
-                if (vBox.getBackground().getFills().get(0).getFill().toString().equals("0x90ee90ff")){
-                    vBox.getChildren().add(circle);
-                    turnOffGreenVboxs();
-                    greenVboxs.clear();
-                }else{
-                    System.out.println("hata");
-                }
+                    if (vBox.getBackground().getFills().get(0).getFill().toString().equals("0x90ee90ff")){
+                        vBox.getChildren().add(circle);
+                        turnOffGreenVboxs();
+                        greenVboxs.clear();
+                        try {
+                            getCircleObject(pane);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }else{
+                        System.out.println("hata");
+                    }
 //                vBox.getChildren().add(circle);
 
+                }
+            });
 
-            }
-        });
+
     }
 
 //    public static Circle getObjectCircle(Pane pane){
@@ -68,7 +69,6 @@ public class FindObject {
     public static List<PairVboxColor> greenVboxs = new ArrayList<>();
 
     public static void getCircleObject(Pane pane) throws IOException {
-
         pane.setOnMousePressed(mouseEvent->{
             Object target = mouseEvent.getTarget();
             if (target instanceof Circle){
@@ -114,14 +114,12 @@ public class FindObject {
 
                     }
 
-                    greenVboxs.clear();
 
                     greenVboxs.add(vBoxColors1);
                     greenVboxs.add(vBoxColors2);
                     greenVboxs.add(vBoxColors3);
 
                     getvBoxObject(pane,circle);
-
 
                 }
 
@@ -170,6 +168,18 @@ public class FindObject {
             allGreenVboxs.add(vBox.getId());
         }
         return allGreenVboxs;
+    }
+
+    public static Players playerTurn(Circle circle){
+        if (circle.getFill().toString().equals("0xfce700ff")){
+            return Players.BLACK;
+        }
+        else if(circle.getFill().toString().equals("#F637EC")){
+            return Players.WHITE;
+        }
+        else{
+            return Players.UNKNOWN;
+        }
     }
 
 
