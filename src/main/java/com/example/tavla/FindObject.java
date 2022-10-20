@@ -49,7 +49,7 @@ public class FindObject {
 
 
     }
-
+    static Player player = new Player();
 
     public static void getCircleObject(Pane pane) throws IOException {
         pane.setOnMousePressed(mouseEvent->{
@@ -61,26 +61,14 @@ public class FindObject {
 //                System.out.println(circle.getFill().toString());
                 PairInteger diceResults = BackgammonController.pair;
 
-                switch (playerColor(circle)){
-                    case UNKNOWN -> {
-                        System.out.println("unknown checker error");
-                        break;
-                    }
-                    case WHITE -> {
-                        move(pane,circle,diceResults);
-                        break;}
-                    case BLACK -> {
-                        move(pane,circle,diceResults);
-                        break;
-                    }
-                }
+                player.play(pane,circle,diceResults);
 
             }
         });
 
     }
 
-    public static void move(Pane pane, Circle circle, PairInteger diceResults){
+    public static void moveBlack(Pane pane, Circle circle, PairInteger diceResults){
         int value1 = diceResults.value1;
         int value2 = diceResults.value2;
         int value3 = value1 + value2;
@@ -119,40 +107,50 @@ public class FindObject {
             setVboxBackgroundColorLightGreen(i.value1);
         }
 
-
-//        System.out.println(targetPositions.toString());
-//        System.out.println(vBoxList);
-//        System.out.println(stringList);
-//        System.out.println(pairVboxColorList);
-//        System.out.println(greenVboxs);
         getvBoxObject(pane,circle);
 
+    }
+    public static void moveWhite(Pane pane, Circle circle, PairInteger diceResults){
+        int value1 = diceResults.value1;
+        int value2 = diceResults.value2;
+        int value3 = value1 + value2;
+        int initalPosition = getVboxNumber(circle.getParent()) ;
 
-//        VBox targetVbox1 = BackgammonController.vBoxList.get(targetPOS1);
-//        VBox targetVbox2 = BackgammonController.vBoxList.get(targetPOS2);
-//        VBox targetVbox3 = BackgammonController.vBoxList.get(targetPOS3);
-//
-//        String target1Color = targetVbox1.getBackground().getFills().get(0).getFill().toString();
-//        String target2Color = targetVbox2.getBackground().getFills().get(0).getFill().toString();
-//        String target3Color = targetVbox3.getBackground().getFills().get(0).getFill().toString();
-//
-//        PairVboxColor vBoxColors1 = new PairVboxColor(targetVbox1,target1Color);
-//        PairVboxColor vBoxColors2 = new PairVboxColor(targetVbox2,target2Color);
-//        PairVboxColor vBoxColors3 = new PairVboxColor(targetVbox3,target3Color);
-//
-//        setVboxBackgroundColorLightGreen(targetVbox1);
-//        setVboxBackgroundColorLightGreen(targetVbox2);
-//        setVboxBackgroundColorLightGreen(targetVbox3);
-//
-////        for (PairVboxColor i: greenVboxs) {
-////            setVboxBackgroundColor(i.value1,i.value2);
-////        }
-//
-//
-//        greenVboxs.add(vBoxColors1);
-//        greenVboxs.add(vBoxColors2);
-//        greenVboxs.add(vBoxColors3);
-//        getvBoxObject(pane,circle);
+        int targetPOS1 = initalPosition - value1 - 1;
+        int targetPOS2 = initalPosition - value2 - 1;
+        int targetPOS3 = initalPosition - value3  - 1;
+
+        List<Integer> targetPositions = targetPOSGenerator(targetPOS1,targetPOS2,targetPOS3);
+        List<PairVboxColor> pairVboxColorList = new ArrayList<>();
+        List<VBox> vBoxList =  new ArrayList<>();
+
+        for (int pos:
+                targetPositions) {
+            vBoxList.add(BackgammonController.vBoxList.get(pos));
+        }
+
+        for (VBox vbox:
+                vBoxList) {
+            pairVboxColorList.add(new PairVboxColor(vbox,vbox.getBackground().getFills().get(0).getFill().toString()));
+        }
+
+        for (PairVboxColor pVoxColor :
+                pairVboxColorList) {
+            greenVboxs.add(pVoxColor);
+            System.out.println("vbox id: " + pVoxColor.value1.getId() + "  " + "vbox ilk rengi: " + pVoxColor.value2);
+        }
+        targetPositions.clear();
+        vBoxList.clear();
+        pairVboxColorList.clear();
+        System.out.println(greenVboxs.size());
+
+        for (PairVboxColor i:
+                greenVboxs) {
+            setVboxBackgroundColorLightGreen(i.value1);
+        }
+
+        getvBoxObject(pane,circle);
+
     }
 
 
@@ -215,9 +213,11 @@ public class FindObject {
 
     public static Players playerColor(Circle circle){
         if (circle.getFill().toString().equals("0xfce700ff")){
+            System.out.println("Player Black");
             return Players.BLACK;
         }
         else if(circle.getFill().toString().equals("0xf637ecff")){
+            System.out.println("Player White");
             return Players.WHITE;
         }
         else{
