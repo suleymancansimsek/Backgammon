@@ -25,7 +25,6 @@ public class BackgammonController implements Initializable{
 
         try {
           FindObject.getCircleObject(pane);
-          System.out.println("find object geçildi");
         } catch (IOException e) {
             e.printStackTrace();
         }
