@@ -23,6 +23,11 @@ public class BackgammonController implements Initializable{
         checkerCreate.createAllWhiteCheckers();
         backgammon.newGamePattern(vBoxList);
 
+//        boolean a= true;
+//        boolean b = !a;
+//
+//        System.out.println(a);
+//        System.out.println(b);
         try {
           FindObject.getCircleObject(pane);
         } catch (IOException e) {
@@ -95,23 +100,14 @@ public class BackgammonController implements Initializable{
 
     @FXML
     protected void onPlayer1ButtonClick(){
-//        FindObject.getObject(pane);
-//        if (getvBoxList().contains(FindObject.getObject(pane))){
-//            System.out.println(FindObject.getObject(pane));
-//            //checkerMove.move(CheckerList.blackCheckers.get(0), FindObject.getObject(pane),pane,pair);
-//        }
-
-
+//        int number = Dicee.singleRoll();
+//        result.setText(String.valueOf(number));
     }
 
     @FXML
     protected void onPlayer2ButtonClick(){
-        System.out.println(vBoxList.get(0).getChildren());
-//        FindObject.getObject(pane);
-//        if (vBoxList.contains(FindObject.getObject(pane))){
-//            checkerMove.move(CheckerList.blackCheckers.get(0), FindObject.getObject(pane),pane,pair);
-//        }
-
+//        int number = Dicee.singleRoll();
+//        result.setText(String.valueOf(number));
     }
 
 

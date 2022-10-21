@@ -3,18 +3,27 @@ package com.example.tavla;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
 
+import java.util.Random;
+
 public class Player {
-    int playRight=2;
+    int playRight = 2;
+    Players players;
+    static boolean blackturn;
+    static boolean whiteturn = !blackturn;
 
+    Player(Players players){
+        this.players=players;
+    }
+    Player(){
 
+    }
     void resetPlayerRight(){
         playRight = 2;
     }
 
     void play(Pane pane, Circle circle, PairInteger diceResults){
 
-        if (playRight>0){
-            switch (FindObject.playerColor(circle)){
+            switch (this.players){
                 case UNKNOWN -> {
                     System.out.println("unknown checker error");
                     break;
@@ -23,16 +32,11 @@ public class Player {
                     FindObject.moveWhite(pane,circle,diceResults);
                     break;}
                 case BLACK -> {
-                    FindObject.moveBlack(pane,circle,diceResults);
+                        FindObject.moveBlack(pane,circle,diceResults);
                     break;
                 }
             }
-            playRight--;
-        }
-        if (playRight == 0){
-            System.out.println("Other player turn");
-            resetPlayerRight();
-        }
-
     }
+
+
 }
