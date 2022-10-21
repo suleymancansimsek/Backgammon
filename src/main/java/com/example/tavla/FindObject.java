@@ -53,6 +53,8 @@ public class FindObject {
     static Player playerWhite = new Player(Players.WHITE);
 
     public static void getCircleObject(Pane pane) throws IOException {
+        Player player = whoPlayFirst(playerBlack,playerWhite);
+        System.out.println(player.players.toString());
         pane.setOnMousePressed(mouseEvent->{
             Object target = mouseEvent.getTarget();
             if (target instanceof Circle){
@@ -62,7 +64,6 @@ public class FindObject {
 //                System.out.println(circle.getFill().toString());
                 PairInteger diceResults = BackgammonController.pair;
 
-                Player player = whoPlayFirst(playerBlack,playerWhite);
               System.out.println("Player right: " + player.playRight);
                 if (player.playRight > 0){
                     player.play(pane,circle,diceResults);
@@ -257,6 +258,7 @@ public class FindObject {
         if (player == playerWhite){
             tempPlayer = playerBlack;
         }
+        System.out.println(tempPlayer.players.toString());
         return tempPlayer;
     }
 }

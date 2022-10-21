@@ -23,7 +23,7 @@ public class Dicee {
 
     public static int decideWho(){
         Random random = new Random();
-        int value1  = random.nextInt(1) + 1; // Returns number between 1 and 6
+        int value1  = random.nextInt(2) + 1;
         return value1;
     }
 
