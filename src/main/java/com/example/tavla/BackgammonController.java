@@ -3,8 +3,10 @@ package com.example.tavla;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
+import javafx.scene.image.Image;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 
 import java.io.IOException;
 import java.net.URL;
@@ -16,7 +18,10 @@ public class BackgammonController implements Initializable{
     CheckerMove checkerMove =  new CheckerMove();
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         //draggableObject.makeDraggableStone(result);
+//        Image image = new Image("C:\\Users\\suley\\IdeaProjects\\Tavla\\src\\main\\java\\com\\example\\tavla\\backgammon_background.jpg");
+//        pane.setBackground(new Background(new BackgroundImage(image, BackgroundRepeat.NO_REPEAT,BackgroundRepeat.NO_REPEAT,BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT)));
         vBoxListCreate();
         CheckerCreate checkerCreate =  new CheckerCreate();
         checkerCreate.createAllBlackCheckers();
@@ -37,6 +42,9 @@ public class BackgammonController implements Initializable{
 
 
     }
+
+    @FXML
+    private AnchorPane anchorPane;
 
     @FXML
     private Label result;

@@ -12,6 +12,7 @@ public class BackgammonApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(BackgammonApplication.class.getResource("tavla-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1000, 600);
+//        scene.getStylesheets().add("style.css");
         stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();

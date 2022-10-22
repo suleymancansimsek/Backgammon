@@ -9,11 +9,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<?import java.net.URL?>
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tavla.BackgammonController">
-   <stylesheets>
-      <URL value="@style.css" />
-   </stylesheets>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-image: &quot;C:\Users\suley\IdeaProjects\Tavla\src\main\java\com\example\tavla\backgammon_background.jpg&quot;;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tavla.BackgammonController">
+
    <children>
       <Pane fx:id="pane" layoutX="90.0" layoutY="30.0" prefHeight="400.0" prefWidth="820.0">
          <children>
